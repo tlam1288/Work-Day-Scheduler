@@ -20,9 +20,13 @@ timeBlockClass.on("click", function (event) {
 });
 
 //loops through all divs and saves the ID's in an array
-var timeId = [];
 $(".time-block").each(function () {
-  timeId.push($(this).attr("id"));
+  var id = parseInt($(this).attr("id"));
+  if (id === currentHour) {
+    $(this).attr("class", "row time-block present");
+  } else if (id < currentHour) {
+    $(this).attr("class", "row time-block past");
+  } else if (id < currentHour) {
+    $(this).attr("class", "row time-block future");
+  }
 });
-
-console.log(timeId);
