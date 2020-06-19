@@ -11,11 +11,18 @@ var currentHour = moment().hour();
 console.log(currentHour);
 
 //event delegating for save buttons
-var timeBlockClass = $(".time-block");
+var saveBtn = $(".saveBtn");
+var description = $(".description");
+var scheduler = $("#scheduler");
+var timeBlock = $(".time-block");
+var textValue = "";
 
-timeBlockClass.on("click", function (event) {
-  if (event.target.matches("button")) {
-    console.log(currentHour);
+//checks if textarea next to button has values. if yes then click event is added
+saveBtn.on("click", function () {
+  if ($(this).siblings("textarea").val() !== "") {
+    alert("hi");
+  } else {
+    alert("no");
   }
 });
 
@@ -26,7 +33,7 @@ $(".time-block").each(function () {
     $(this).attr("class", "row time-block present");
   } else if (id < currentHour) {
     $(this).attr("class", "row time-block past");
-  } else if (id < currentHour) {
+  } else if (id > currentHour) {
     $(this).attr("class", "row time-block future");
   }
 });
