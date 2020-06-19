@@ -1,17 +1,28 @@
-//shows current date and time of page visit
-var now = moment();
-console.log(now);
+//displays current date on top of page and concerts it to MM/DD/YYYY
+var currentDate = moment().format("L");
+$("#currentDay").text("Today's date is: " + currentDate);
 
-//converts date to string
-var dateString = moment("12-25-1995", "MM-DD-YYYY");
-console.log(dateString);
+//saves current time and converts to HH:MMS
+var currentTime = moment().format("LT");
+console.log(currentTime);
 
-//shows last sunday
-var date = moment().day(-7);
-console.log(date);
+//finds current hour
+var currentHour = moment().hour();
+console.log(currentHour);
 
-//checking to see if a date is before. will return boolean
-moment("2010-10-20").isBefore("2010-10-21"); // true
+//event delegating for save buttons
+var timeBlockClass = $(".time-block");
 
-//checks to see if date is same time
-moment("2010-10-20").isSame("2010-10-20"); // true
+timeBlockClass.on("click", function (event) {
+  if (event.target.matches("button")) {
+    console.log(currentHour);
+  }
+});
+
+//loops through all divs and saves the ID's in an array
+var timeId = [];
+$(".time-block").each(function () {
+  timeId.push($(this).attr("id"));
+});
+
+console.log(timeId);
