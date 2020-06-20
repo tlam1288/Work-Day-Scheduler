@@ -4,11 +4,9 @@ $("#currentDay").text("Today's date is: " + currentDate);
 
 //saves current time and converts to HH:MMS
 var currentTime = moment().format("LT");
-console.log(currentTime);
 
 //finds current hour
 var currentHour = moment().hour();
-//console.log(currentHour);
 
 //event delegating for save buttons
 var saveBtn = $(".saveBtn");
@@ -26,7 +24,7 @@ saveBtn.on("click", function (event) {
     localStorage.setItem(parentID, JSON.stringify(textValue));
     //console.log(parentID);
   } else {
-    alert("There's nothing to save");
+    alert("Nothing to save");
   }
 });
 

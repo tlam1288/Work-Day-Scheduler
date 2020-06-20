@@ -1,106 +1,20 @@
-# 05 Third-Party APIs: Work Day Scheduler
+# Work-Day-Scheduler
 
-Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+This day scheduler allows the user to add events to their work day. The current date is displayed at the top and the schedule below is color coded based on if the time has past, is the current time, or has yet to occur. The user can add events and save it so that it appears the next time they visit the site.
 
-You'll need to use the [Moment.js](https://momentjs.com/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Moment.js in the browser.
+## How it works
 
-Starter html and css files are provided in the `./Develop` folder. You should familiarize yourself with the code in these files before proceeding to pseudo-code your approach for solving the problem.
+The app takes advantage of the funtions moment.js offers. Several functions are used from the library to display and convert the date and time. Each time block has an ID that allows it to get compared to the current time. That allows the color blocks to color the time appropriately. When the user enters an event and clicks the save button, a function is run to make sure there is text value in the textarea next to the button before it is saved to local storage. The events are then displayed back into the same time block that the user originally entered.
 
-## User Story
+## Concepts used
 
-```
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
+*moment.js library
+*Saving user data to local storage to access again
+*Using .each() method to check attributes and display events
+*Traversing the DOM to display events in appropriate areas
 
-## Acceptance Criteria
+## Link to the Day Scheduler
 
-```
-GIVEN I am using a daily planner to create a schedule
+https://tlam1288.github.io/Work-Day-Scheduler/
 
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours
-
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-
-WHEN I click into a timeblock
-THEN I can enter an event
-
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-
-WHEN I refresh the page
-THEN the saved events persist
-```
-
-The following animation demonstrates the application functionality:
-
-![day planner demo](./Assets/05-third-party-apis-homework-demo.gif)
-
-## Video Demonstration
-
-[Panopto: Homework 5 Demo](https://codingbootcamp.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=4565f4dc-9834-475e-a504-abd900fba724)
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-## Repository Quality Requirements
-
-* The repository must have a unique name. (e.i. Does not contain words like "assignment" or "homework" in the repository name.)
-
-* Follows best practices for file structure and naming conventions.
-  * Avoid uppercase letters in file names. (Except for .js files which export a constructor or React component.)
-  * File names MUST NOT contain spaces. Use "-" or "_" to separate words in a file name.
-  * Avoid using special characters.
-  * Organize assets using folders.
-  * Has an `index.html` file at the root of the repo if deploying on GitHub pages.
-
-* Follows best practices for code formatting.
-  * Variable and function names use consistent casing such as camelCase or snake case. Avoid single letter names for things.
-  * Indentation applied to functions, objects, and other code blocks.
-  * Uses consistent indentation characters: tabs, 2 spaces, or 4 spaces.
-  * Comments used where code is difficult to understand or reason for a series of expressions is not obvious.
-
-* Repository contains a quality readme with a description, screenshot, link to deployed application, etc. (see [Good README Guide](../../01-HTML-Git-CSS/04-Supplemental/Good-README-GUIDE/README.md))
-
-* Several commits should be made during the development process as features and assets were completed/updated. Refer to [Commit Early and Often](#commit-early-and-often) below.
-
-## Application Quality Requirements
-
-* Application user experience is intuitive and easy to navigate.
-
-* Application user interface style is clean and polished.
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-* Your commit history is a signal to employers that you are actively working on projects and learning new skills.
-
-* Your commit history allows you to revert your codebase in the event that you need to return to a previous state.
-
-Follow these guidelines for committing:
-
-* Make single-purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits.
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history.
-
-* Don't commit half-done work, for the sake of your collaborators (and your future self!).
-
-* Test your application before you commit to ensure functionality at every step in the development process.
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
----
-
-© 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+![Work Day Scheduler](Assets/DayScheduler.PNG);
