@@ -10,9 +10,6 @@ var currentHour = moment().hour();
 
 //event delegating for save buttons
 var saveBtn = $(".saveBtn");
-var description = $(".description");
-var scheduler = $("#scheduler");
-var timeBlock = $(".time-block");
 var textValue = "";
 
 //checks if textarea next to button has values. if yes then click event is added
@@ -23,8 +20,9 @@ saveBtn.on("click", function (event) {
     textValue = $(this).siblings("textarea").val();
     localStorage.setItem(parentID, JSON.stringify(textValue));
     //console.log(parentID);
-  } else {
-    alert("Nothing to save");
+  } else if ($(this).siblings("textarea").val() === "") {
+    textValue = "";
+    localStorage.setItem(parentID, textValue);
   }
 });
 
