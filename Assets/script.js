@@ -8,7 +8,7 @@ console.log(currentTime);
 
 //finds current hour
 var currentHour = moment().hour();
-console.log(currentHour);
+//console.log(currentHour);
 
 //event delegating for save buttons
 var saveBtn = $(".saveBtn");
@@ -18,15 +18,19 @@ var timeBlock = $(".time-block");
 var textValue = "";
 
 //checks if textarea next to button has values. if yes then click event is added
-saveBtn.on("click", function () {
+saveBtn.on("click", function (event) {
+  event.preventDefault();
   if ($(this).siblings("textarea").val() !== "") {
-    alert("hi");
+    var parentID = $(this).parent().attr("id");
+    textValue = $(this).siblings("textarea").val();
+    localStorage.setItem(parentID, JSON.stringify(textValue));
+    //console.log(parentID);
   } else {
-    alert("no");
+    alert("There's nothing to save");
   }
 });
 
-//loops through all divs and saves the ID's in an array
+//checks time and sets colors to hours
 $(".time-block").each(function () {
   var id = parseInt($(this).attr("id"));
   if (id === currentHour) {
@@ -36,4 +40,11 @@ $(".time-block").each(function () {
   } else if (id > currentHour) {
     $(this).attr("class", "row time-block future");
   }
+});
+
+//prints saved evet from local storage
+$(".time-block").each(function () {
+  var time = $(this).attr("id");
+  var local = localStorage.getItem(time);
+  $(this).children(".description").html(local);
 });
